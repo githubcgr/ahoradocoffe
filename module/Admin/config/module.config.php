@@ -1,14 +1,11 @@
 <?php
 
-/**
- * @link      http://github.com/zendframework/ZendSkeletonAdmin for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
 
 namespace Admin;
 
 use Admin\Controller\IndexController;
+use Admin\Controller\CadastroUsuarioController;
+
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -30,6 +27,7 @@ return [
     'controllers' => [
         'factories' => [
             IndexController::class => InvokableFactory::class,
+            CadastroUsuarioController::class => InvokableFactory::class,
         ]
     ],
     'view_manager' => [
