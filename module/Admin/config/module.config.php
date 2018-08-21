@@ -1,8 +1,5 @@
 <?php
-
-
 namespace Admin;
-
 use Admin\Controller\IndexController;
 use Admin\Controller\CadastroUsuarioController;
 
@@ -17,7 +14,7 @@ return [
                 'options' => [
                     'route' => '/admin[/:controller[/:action]]',
                     'defaults' => [
-                        'controller' => IndexController::class,
+                        'controller' => CadastroUsuarioController::class,
                         'action' => 'index',
                     ],
                 ],
@@ -27,7 +24,7 @@ return [
     'controllers' => [
         'factories' => [
             IndexController::class => InvokableFactory::class,
-            CadastroUsuarioController::class => InvokableFactory::class,
+            CadastroUsuarioController::class => InvokableFactory::class
         ]
     ],
     'view_manager' => [
