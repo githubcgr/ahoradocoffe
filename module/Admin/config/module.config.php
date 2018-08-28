@@ -1,8 +1,9 @@
 <?php
+
 namespace Admin;
+
 use Admin\Controller\IndexController;
 use Admin\Controller\CadastroUsuarioController;
-
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -14,8 +15,12 @@ return [
                 'options' => [
                     'route' => '/admin[/:controller[/:action]]',
                     'defaults' => [
-                        'controller' => CadastroUsuarioController::class,
+                        'controller' => Controller\IndexController::class,
                         'action' => 'index',
+                    ],
+                    'constraints' => [
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ],
                 ],
             ],
@@ -25,6 +30,9 @@ return [
         'factories' => [
             IndexController::class => InvokableFactory::class,
             CadastroUsuarioController::class => InvokableFactory::class
+        ],
+        'aliases' => [
+            'cadastro-usuario' => CadastroUsuarioController::class,
         ]
     ],
     'view_manager' => [
